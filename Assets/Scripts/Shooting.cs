@@ -6,8 +6,11 @@ using UnityEngine.InputSystem;
 
 public class Shooting : MonoBehaviour
 {
+
     public Transform xPoint;
+    public Transform negXPoint;
     public Transform yPoint;
+    public Transform negYPoint;
     public GameObject bullet;
 
     // Start is called before the first frame update
@@ -19,34 +22,11 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        fireGun();
     }
 
     void fireGun()
-    {
-
-        /*
-        if (sideFire >= 0.0)
-        {
-            Instantiate(bullet, xPoint.position, transform.rotation);
-        }
-
-        if (sideFire <= 0.0)
-        {
-            Instantiate(bullet, -xPoint.position, transform.rotation);
-        }
-
-        if (vertFire >= 0.0)
-        {
-            Instantiate(bullet, yPoint.position, transform.rotation);
-        }
-
-        if (vertFire >= 0.0)
-        {
-            Instantiate(bullet, -yPoint.position, transform.rotation);
-        }
-
-        */
+    {   
 
         if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
         {
@@ -55,7 +35,7 @@ public class Shooting : MonoBehaviour
 
         if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
         {
-            Instantiate(bullet, -xPoint.position, transform.rotation);
+            Instantiate(bullet, negXPoint.position, transform.rotation);
             Debug.Log("Boom!");
         }
 
@@ -67,7 +47,7 @@ public class Shooting : MonoBehaviour
 
         if (Keyboard.current.downArrowKey.wasPressedThisFrame)
         {
-            Instantiate(bullet, -yPoint.position, transform.rotation);
+            Instantiate(bullet, negYPoint.position, transform.rotation);
             Debug.Log("Zap");
         }
     }
