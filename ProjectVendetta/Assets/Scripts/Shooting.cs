@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour
     float bulletLife = 2.5f;
     public float shotSpeed = 200f;
 
-   void Update()
+   void FixedUpdate()
    {
         if (input.x <= 1 && input.x > 0)
         {
