@@ -16,6 +16,8 @@ public class Shooting : MonoBehaviour
     public Transform negYPoint;
     public GameObject bullet;
 
+    [SerializeField] AudioClip shotNoise;
+
     Rigidbody2D rb;
     Transform bulletRot;
 
@@ -32,7 +34,7 @@ public class Shooting : MonoBehaviour
             bullet = Instantiate(bullet, xPoint.position, transform.rotation) as GameObject;
             rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(transform.right * shotSpeed);
-            
+            AudioSource.PlayClipAtPoint(shotNoise, Camera.main.transform.position);
 
         }
         else if(input.x >= -1 && input.x < 0)
@@ -43,7 +45,7 @@ public class Shooting : MonoBehaviour
             rb.AddForce(-transform.right * shotSpeed);
             bulletRot = bullet.GetComponent<Transform>();
             bulletRot.Rotate(0, 0, 180);
-            
+            AudioSource.PlayClipAtPoint(shotNoise, Camera.main.transform.position);
         }
         
         if(input.y <= 1 && input.y > 0)
@@ -54,6 +56,7 @@ public class Shooting : MonoBehaviour
             rb.AddForce(transform.up * shotSpeed);
             bulletRot = bullet.GetComponent<Transform>();
             bulletRot.Rotate(0, 0, 90);
+            AudioSource.PlayClipAtPoint(shotNoise, Camera.main.transform.position);
         }
         else if(input.y >= -1 && input.y < 0)
         {
@@ -63,6 +66,7 @@ public class Shooting : MonoBehaviour
             rb.AddForce(-transform.up * shotSpeed);
             bulletRot = bullet.GetComponent<Transform>();
             bulletRot.Rotate(0, 0, 270);
+            AudioSource.PlayClipAtPoint(shotNoise, Camera.main.transform.position);
         }
    }
 
