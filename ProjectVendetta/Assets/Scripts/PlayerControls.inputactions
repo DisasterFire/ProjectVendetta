@@ -15,19 +15,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HorShoot",
-                    "type": "Button",
-                    "id": "63a0e719-01b6-466d-ad5d-d3657f16bb15",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "VertShoot",
-                    "type": "Button",
-                    "id": "5eb270c0-b01d-47b5-98c1-f97c270c1840",
-                    "expectedControlType": "Button",
+                    "name": "Shoot",
+                    "type": "PassThrough",
+                    "id": "e8aff825-cd0a-437b-852d-06d5459b702b",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -90,68 +81,57 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "HorAxis",
-                    "id": "5c115b65-f0b6-41df-8770-aa8b0aabff95",
-                    "path": "1DAxis",
+                    "name": "Shoot",
+                    "id": "78e0f347-9d77-40e3-a041-c16543a7beec",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HorShoot",
+                    "action": "Shoot",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "ebe34ed8-4657-4653-a9b4-945253a1ab6f",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorShoot",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "b3ed73d2-fd17-45f7-b8ab-b6374cc94138",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorShoot",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "VertAxis",
-                    "id": "b0b4d128-bd58-4506-b19a-58fc2da9797d",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "VertShoot",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "34287a84-feb4-42a7-b7dc-b9bc2455b623",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "VertShoot",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "5751ac22-d5b8-4288-ae36-1ac21f253a02",
+                    "name": "up",
+                    "id": "3d76093c-6bf1-44ef-a017-decde07b053c",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "VertShoot",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "2925478a-10ae-4082-9580-e534b495dbc5",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "ac9c306f-86a2-4099-aa19-d6bd1c090bf3",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "de373d5c-0919-4eeb-852e-552077137e07",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

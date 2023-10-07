@@ -9,10 +9,10 @@ public class InputManager : MonoBehaviour
     Vector2 hInput; //Input for movement
     Vector2 vInput;
 
-    Vector2 vertIn; //Vertical Input for the shooting
-    Vector2 horIn; //Horizontal Input for the shooting
+    Vector2 shootIn;
 
     [SerializeField] Movement movement;
+    [SerializeField] Shooting shooting;
 
     private void Awake()
     {
@@ -22,8 +22,7 @@ public class InputManager : MonoBehaviour
         actions.Movement.performed += ctx => hInput = ctx.ReadValue<Vector2>();
         actions.Movement.performed += ctx => vInput = ctx.ReadValue<Vector2>();
 
-        actions.HorShoot.performed += ctx => horIn = ctx.ReadValue<Vector2>();
-        actions.VertShoot.performed += ctx => vertIn = ctx.ReadValue<Vector2>();
+        actions.Shoot.performed += ctx => shootIn = ctx.ReadValue<Vector2>();
     }
 
     // Start is called before the first frame update
@@ -31,7 +30,8 @@ public class InputManager : MonoBehaviour
     {
         movement.ReceiveInput(hInput);
         movement.ReceiveInput(vInput);
-        
+
+        shooting.ReceiveInput(shootIn);
     }
 
 
