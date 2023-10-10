@@ -406,6 +406,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2855676628255020008, guid: 5e5f5529a16dc7d42b859ac6b683cc48, type: 3}
     - target: {fileID: 4950516086990981386, guid: a67a4f092b4f3ca48a8d959ecd593160, type: 3}
+      propertyPath: laserBeam
+      value: 
+      objectReference: {fileID: 6513314870541659128, guid: 61a0244ca1847bc45b2b227922cff102, type: 3}
+    - target: {fileID: 4950516086990981386, guid: a67a4f092b4f3ca48a8d959ecd593160, type: 3}
       propertyPath: negXPoint
       value: 
       objectReference: {fileID: 1724289169}
@@ -414,9 +418,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1976936625}
     - target: {fileID: 4950516086990981386, guid: a67a4f092b4f3ca48a8d959ecd593160, type: 3}
+      propertyPath: shotNoise
+      value: 
+      objectReference: {fileID: 8300000, guid: 2caa5c34418c39647a20df82fe149550, type: 3}
+    - target: {fileID: 4950516086990981386, guid: a67a4f092b4f3ca48a8d959ecd593160, type: 3}
       propertyPath: shotSpeed
       value: 321.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4950516086990981386, guid: a67a4f092b4f3ca48a8d959ecd593160, type: 3}
+      propertyPath: laserNoise
+      value: 
+      objectReference: {fileID: 8300000, guid: e4c776d7030cfda418e2369f5c240b5a, type: 3}
     - target: {fileID: 4950516086990981389, guid: a67a4f092b4f3ca48a8d959ecd593160, type: 3}
       propertyPath: speed
       value: 10
