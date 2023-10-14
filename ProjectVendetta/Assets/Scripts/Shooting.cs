@@ -110,18 +110,18 @@ public class Shooting : MonoBehaviour
         if (input.x <= 1 && input.x > 0)
         {
             //Debug.Log("Right");
-            bullet = Instantiate(laserBeam, xPoint.position, transform.rotation) as GameObject;
+            laserBeam = Instantiate(laserBeam, xPoint.position, transform.rotation) as GameObject;
             rb = laserBeam.GetComponent<Rigidbody2D>();
             rb.AddForce(transform.right * shotSpeed);
             AudioSource.PlayClipAtPoint(laserNoise, Camera.main.transform.position);
             laserRot = laserBeam.GetComponent<Transform>();
-            bulletRot.Rotate(0, 0, 180);
+            laserRot.Rotate(0, 0, 180);
         }
         else if (input.x >= -1 && input.x < 0)
         {
             //Debug.Log("Left");
-            bullet = Instantiate(bullet, negXPoint.position, transform.rotation) as GameObject;
-            rb = bullet.GetComponent<Rigidbody2D>();
+            laserBeam = Instantiate(laserBeam, negXPoint.position, transform.rotation) as GameObject;
+            rb = laserBeam.GetComponent<Rigidbody2D>();
             rb.AddForce(-transform.right * shotSpeed);
             laserRot = laserBeam.GetComponent<Transform>();
             laserRot.Rotate(0, 0, 0);
@@ -131,8 +131,8 @@ public class Shooting : MonoBehaviour
         if (input.y <= 1 && input.y > 0)
         {
             //Debug.Log("Up");
-            bullet = Instantiate(bullet, yPoint.position, transform.rotation) as GameObject;
-            rb = bullet.GetComponent<Rigidbody2D>();
+            laserBeam = Instantiate(laserBeam, yPoint.position, transform.rotation) as GameObject;
+            rb = laserBeam.GetComponent<Rigidbody2D>();
             rb.AddForce(transform.up * shotSpeed);
             laserRot = laserBeam.GetComponent<Transform>();
             laserRot.Rotate(0, 0, 270);
@@ -141,8 +141,8 @@ public class Shooting : MonoBehaviour
         else if (input.y >= -1 && input.y < 0)
         {
             //Debug.Log("Down");
-            bullet = Instantiate(bullet, negYPoint.position, transform.rotation) as GameObject;
-            rb = bullet.GetComponent<Rigidbody2D>();
+            laserBeam = Instantiate(laserBeam, negYPoint.position, transform.rotation) as GameObject;
+            rb = laserBeam.GetComponent<Rigidbody2D>();
             rb.AddForce(-transform.up * shotSpeed);
             laserRot = laserBeam.GetComponent<Transform>();
             laserRot.Rotate(0, 0, 90);
