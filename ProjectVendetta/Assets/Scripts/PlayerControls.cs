@@ -44,6 +44,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aiming"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""28cabe8b-af25-4a25-b699-d1af8885a73e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -156,6 +165,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fec4d194-5428-4c8f-a029-f6d3831f600e"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aiming"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +186,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_MoveAndShoot = asset.FindActionMap("MoveAndShoot", throwIfNotFound: true);
         m_MoveAndShoot_Movement = m_MoveAndShoot.FindAction("Movement", throwIfNotFound: true);
         m_MoveAndShoot_Shoot = m_MoveAndShoot.FindAction("Shoot", throwIfNotFound: true);
+        m_MoveAndShoot_Aiming = m_MoveAndShoot.FindAction("Aiming", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,12 +250,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IMoveAndShootActions> m_MoveAndShootActionsCallbackInterfaces = new List<IMoveAndShootActions>();
     private readonly InputAction m_MoveAndShoot_Movement;
     private readonly InputAction m_MoveAndShoot_Shoot;
+    private readonly InputAction m_MoveAndShoot_Aiming;
     public struct MoveAndShootActions
     {
         private @PlayerControls m_Wrapper;
         public MoveAndShootActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_MoveAndShoot_Movement;
         public InputAction @Shoot => m_Wrapper.m_MoveAndShoot_Shoot;
+        public InputAction @Aiming => m_Wrapper.m_MoveAndShoot_Aiming;
         public InputActionMap Get() { return m_Wrapper.m_MoveAndShoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -250,6 +273,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Aiming.started += instance.OnAiming;
+            @Aiming.performed += instance.OnAiming;
+            @Aiming.canceled += instance.OnAiming;
         }
 
         private void UnregisterCallbacks(IMoveAndShootActions instance)
@@ -260,6 +286,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Aiming.started -= instance.OnAiming;
+            @Aiming.performed -= instance.OnAiming;
+            @Aiming.canceled -= instance.OnAiming;
         }
 
         public void RemoveCallbacks(IMoveAndShootActions instance)
@@ -281,5 +310,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnAiming(InputAction.CallbackContext context);
     }
 }

@@ -10,9 +10,12 @@ public class InputManager : MonoBehaviour
     Vector2 vInput;
 
     Vector2 shootIn;
+    Vector2 hAimIn;
+    Vector2 vAimIn;
 
     [SerializeField] Movement movement;
     [SerializeField] Shooting shooting;
+    [SerializeField] Aiming aiming;
 
     private void Awake()
     {
@@ -23,6 +26,9 @@ public class InputManager : MonoBehaviour
         actions.Movement.performed += ctx => vInput = ctx.ReadValue<Vector2>();
 
         actions.Shoot.performed += ctx => shootIn = ctx.ReadValue<Vector2>();
+
+        actions.Aiming.performed += ctx => hAimIn = ctx.ReadValue<Vector2>();
+        actions.Aiming.performed += ctx => vAimIn = ctx.ReadValue<Vector2>();
     }
 
     // Start is called before the first frame update
@@ -32,6 +38,9 @@ public class InputManager : MonoBehaviour
         movement.ReceiveInput(vInput);
 
         shooting.ReceiveInput(shootIn);
+
+        aiming.ReceiveInput(hAimIn);
+        aiming.ReceiveInput(vAimIn);
     }
 
 
